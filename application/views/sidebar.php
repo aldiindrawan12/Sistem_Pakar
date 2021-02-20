@@ -7,7 +7,7 @@
         <ul class="navbar-nav bg-gradient-light sidebar sidebar-white accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center my-4" href="<?=base_url("index.php/home/diagnosa")?>">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center my-4" href="<?=base_url("index.php/home/diagnosa/").$username?>">
                 <div class="sidebar-brand-icon fa-flip-horizontal">
                     <i class="fas fa-user-md"></i>
                 </div>
