@@ -1,4 +1,7 @@
 <div class="container">
+    <div>
+        <a href="" class="btn btn-primary m-3" data-toggle="modal" data-target="#popup-tambah-penyakit"><i class="fas fa-plus"></i>Tambah Penyakit</a>
+    </div>
     <div class="card-body p-0">
         <table class="table table-bordered">
             <thead>
@@ -29,15 +32,15 @@
         <table class="table table-bordered">
             <tbody>
                 <tr class="text-bold text-center text-dark">
-                    <td colspan=2><span id="nama-penyakit">nama penyakit</span></td>
+                    <td colspan=2><span id="nama-penyakit">Nama Penyakit</span></td>
                 </tr>
                 <tr>
                     <td width="15%">Penyebab</td>
-                    <td><span id="penyebab-penyakit">Lorem ipsum dolor sit amet consectetur adipisicing elit. At assumenda autem minima ut quia, sint blanditiis cum nulla delectus, repudiandae dolor dignissimos. Quisquam corrupti atque alias sed suscipit ipsa odit!</span></td>
+                    <td><span id="penyebab-penyakit"></span></td>
                 </tr>
                 <tr>
                     <td width="15%">Solusi</td>
-                    <td><span id="solusi-penyakit">Lorem ipsum dolor sit amet consectetur adipisicing elit. At assumenda autem minima ut quia, sint blanditiis cum nulla delectus, repudiandae dolor dignissimos. Quisquam corrupti atque alias sed suscipit ipsa odit!</span></td>
+                    <td><span id="solusi-penyakit"></span></td>
                 </tr>
             </tbody>
         </table>
@@ -68,6 +71,38 @@
                     <div class="form-group">
                         <label for="penyakit-solusi-edit" class="form-label">Solusi Penyakit</label>
                         <textarea class="form-control" name="penyakit-solusi-edit" id="penyakit-solusi-edit" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success mb-3 float-right">Simpan</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="popup-tambah-penyakit" tabindex="-1" role="dialog" aria-labelledby="modal-block-large" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header bg-primary-dark">
+                <h5 class="font-weight-bold">Tambah Data Penyakit</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="font-size-sm m-3 text-justify">
+                <form action="<?= base_url("index.php/home/insert_penyakit/".$username)?>" method="POST">
+                    <div class="form-group">
+                        <label for="penyakit-nama-insert" class="form-label">Nama Penyakit</label>
+                        <input autocomplete="off" type="text" class="form-control" id="penyakit-nama-insert" name="penyakit-nama-insert" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="penyakit-penyebab-insert" class="form-label">Sebab Penyakit</label>
+                        <textarea class="form-control" name="penyakit-penyebab-insert" id="penyakit-penyebab-insert" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="penyakit-solusi-insert" class="form-label">Solusi Penyakit</label>
+                        <textarea class="form-control" name="penyakit-solusi-insert" id="penyakit-solusi-insert" rows="3"></textarea>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-success mb-3 float-right">Simpan</button>

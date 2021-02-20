@@ -42,6 +42,14 @@
 
             <!-- Nav Item -->
             <li class="nav-item">
+                <a class="nav-link" href="<?=base_url("index.php/home/rule/".$username)?>">
+                    <i class="fas fa-capsules"></i>
+                    <span>Rule Gejala</span>
+                </a>
+            </li>
+
+            <!-- Nav Item -->
+            <li class="nav-item">
                 <a class="nav-link" href="<?=base_url("index.php/home/riwayat/".$username)?>">
                     <i class="fas fa-history"></i>
                     <span>Riwayat Pasien</span>
