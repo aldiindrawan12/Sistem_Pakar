@@ -45,6 +45,22 @@ class Model_Home extends CI_model
         $this->db->update("penyakit");
     }
 
+    public function insert_histori($data){
+        $this->db->insert("histori",$data);
+    }
+
+    public function getallrulejoin()
+    {
+        $this->db->join("gejala","gejala.gejala_id=rule.gejala_id","left");
+        $this->db->join("penyakit","penyakit.penyakit_id=rule.penyakit_id","left");
+        return $this->db->get("rule")->result_array();
+    }
+
+    public function gethistori($histori_id)
+    {
+        return $this->db->get_where("histori",array("histori_id" => $histori_id))->row_array();
+    }
+
     public function update_rule($data){
         $this->db->set("penyakit_id",$data["penyakit_id"]);
         $this->db->set("gejala_id",$data["gejala_id"]);

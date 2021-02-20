@@ -46,6 +46,9 @@ class Home extends CI_Controller {
             redirect(base_url());
         }
         $data["username"]=str_replace("%20"," ",$username);
+        $data["gejala"] = $this->model_home->getallgejala();
+        $data["penyakit"] = $this->model_home->getallpenyakit();
+
         $this->load->view('header',$data);
         $this->load->view('sidebar');
 		$this->load->view('home/diagnosa');
@@ -109,6 +112,36 @@ class Home extends CI_Controller {
         $penyakit_id = $this->input->get('id');
         $data = $this->model_home->getpenyakitbyid($penyakit_id);
         echo json_encode($data);
+    }
+
+    public function hasil($username){
+        if(!isset($_SESSION["login"])){
+            redirect(base_url());
+        }
+        $data["username"]=str_replace("%20"," ",$username);
+        $data["rule"] = $this->model_home->getallrulejoin();
+        $data["histori"] = $this->model_home->gethistori(5);
+        $data["penyakit"] = $this->model_home->getallpenyakit();
+        $this->load->view('header',$data);
+        $this->load->view('sidebar');
+		$this->load->view('home/hasil');
+        $this->load->view('footer');
+    }
+
+    public function data_diagnosa(){
+        $data_diagnosa = json_encode($this->input->get('data')); //data user untuk perhitungan CF
+        $data = [
+            "data"=>$data_diagnosa
+        ];
+        $this->model_home->insert_histori($data);
+
+        $data_hasil = [
+            "penyakit_id" =>1,
+            "penyakit_name"=>"Campak",
+            "persentase"=>"77%",
+            "solusi"=>"berobat"
+        ];
+        echo json_encode($data_hasil);
     }
 
     public function detailrule(){
